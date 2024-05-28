@@ -22,7 +22,6 @@ func main() {
 	n := maelstrom.NewNode()
 	store := map[int]bool{}
 	topology := make(map[string][]string)
-
 	n.Handle("broadcast", func(msg maelstrom.Message) error {
 
 		var bodley struct {
@@ -32,9 +31,18 @@ func main() {
 		if err := json.Unmarshal(msg.Body, &bodley); err != nil {
 			return err
 		}
-
-		log.Printf("Got the message %+v\n", bodley.Message)
 		store[bodley.Message] = true
+
+		whoami := msg.Dest
+		from := msg.Src
+		for _, node := range n.NodeIDs() {
+			if whoami == node || from == node { continue }
+		
+			n.Send(node, msg.Body)
+		}
+		// for neighbor := range topology[whoami] {
+		// 	n.Send(neighbor, msg)
+		// }
 
 		resp := map[string]any{}
 		resp["type"] = "broadcast_ok"
@@ -43,7 +51,6 @@ func main() {
 	})
 
 	n.Handle("read", func(msg maelstrom.Message) error {
-
 		var nakamata struct {
 			Type string
 		}

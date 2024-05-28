@@ -1,0 +1,39 @@
+2024/05/28 18:19:52 Received {c0 n2 {"type":"init","node_id":"n2","node_ids":["n0","n1","n2","n3","n4"],"msg_id":1}}
+2024/05/28 18:19:52 Node n2 initialized
+2024/05/28 18:19:52 Sent {"src":"n2","dest":"c0","body":{"in_reply_to":1,"type":"init_ok"}}
+2024/05/28 18:19:52 Received {c7 n2 {"type":"topology","topology":{"n0":["n3","n1"],"n1":["n4","n2","n0"],"n2":["n1"],"n3":["n0","n4"],"n4":["n1","n3"]},"msg_id":1}}
+2024/05/28 18:19:52 Sent {"src":"n2","dest":"c7","body":{"in_reply_to":1,"type":"topology_ok"}}
+2024/05/28 18:19:53 Received {c12 n2 {"type":"broadcast","message":0,"msg_id":1}}
+2024/05/28 18:19:53 Sent {"src":"n2","dest":"n0","body":{"src":"n2","dest":"n0","body":{"type":"broadcast","message":0,"msg_id":1}}}
+2024/05/28 18:19:53 Sent {"src":"n2","dest":"n1","body":{"src":"n2","dest":"n1","body":{"type":"broadcast","message":0,"msg_id":1}}}
+2024/05/28 18:19:53 Sent {"src":"n2","dest":"n3","body":{"src":"n2","dest":"n3","body":{"type":"broadcast","message":0,"msg_id":1}}}
+2024/05/28 18:19:53 Sent {"src":"n2","dest":"n4","body":{"src":"n2","dest":"n4","body":{"type":"broadcast","message":0,"msg_id":1}}}
+2024/05/28 18:19:53 Sent {"src":"n2","dest":"n2","body":{"in_reply_to":1,"type":"broadcast_ok"}}
+2024/05/28 18:19:53 Received {n2 n2 {"in_reply_to":1,"type":"broadcast_ok"}}
+2024/05/28 18:19:53 Ignoring reply to 1 with no callback
+2024/05/28 18:19:58 Received {c15 n2 {"type":"broadcast","message":3,"msg_id":1}}
+2024/05/28 18:19:58 Sent {"src":"n2","dest":"n0","body":{"src":"n2","dest":"n0","body":{"type":"broadcast","message":3,"msg_id":1}}}
+2024/05/28 18:19:58 Sent {"src":"n2","dest":"n1","body":{"src":"n2","dest":"n1","body":{"type":"broadcast","message":3,"msg_id":1}}}
+2024/05/28 18:19:58 Sent {"src":"n2","dest":"n3","body":{"src":"n2","dest":"n3","body":{"type":"broadcast","message":3,"msg_id":1}}}
+2024/05/28 18:19:58 Sent {"src":"n2","dest":"n4","body":{"src":"n2","dest":"n4","body":{"type":"broadcast","message":3,"msg_id":1}}}
+2024/05/28 18:19:58 Sent {"src":"n2","dest":"n2","body":{"in_reply_to":1,"type":"broadcast_ok"}}
+2024/05/28 18:19:58 Received {n2 n2 {"in_reply_to":1,"type":"broadcast_ok"}}
+2024/05/28 18:19:58 Ignoring reply to 1 with no callback
+2024/05/28 18:20:03 Received {c18 n2 {"type":"broadcast","message":6,"msg_id":1}}
+2024/05/28 18:20:03 Sent {"src":"n2","dest":"n0","body":{"src":"n2","dest":"n0","body":{"type":"broadcast","message":6,"msg_id":1}}}
+2024/05/28 18:20:03 Sent {"src":"n2","dest":"n1","body":{"src":"n2","dest":"n1","body":{"type":"broadcast","message":6,"msg_id":1}}}
+2024/05/28 18:20:03 Sent {"src":"n2","dest":"n3","body":{"src":"n2","dest":"n3","body":{"type":"broadcast","message":6,"msg_id":1}}}
+2024/05/28 18:20:03 Sent {"src":"n2","dest":"n4","body":{"src":"n2","dest":"n4","body":{"type":"broadcast","message":6,"msg_id":1}}}
+2024/05/28 18:20:03 Sent {"src":"n2","dest":"n2","body":{"in_reply_to":1,"type":"broadcast_ok"}}
+2024/05/28 18:20:03 Received {n2 n2 {"in_reply_to":1,"type":"broadcast_ok"}}
+2024/05/28 18:20:03 Ignoring reply to 1 with no callback
+2024/05/28 18:20:08 Received {c21 n2 {"type":"broadcast","message":8,"msg_id":1}}
+2024/05/28 18:20:08 Sent {"src":"n2","dest":"n0","body":{"src":"n2","dest":"n0","body":{"type":"broadcast","message":8,"msg_id":1}}}
+2024/05/28 18:20:08 Sent {"src":"n2","dest":"n1","body":{"src":"n2","dest":"n1","body":{"type":"broadcast","message":8,"msg_id":1}}}
+2024/05/28 18:20:08 Sent {"src":"n2","dest":"n3","body":{"src":"n2","dest":"n3","body":{"type":"broadcast","message":8,"msg_id":1}}}
+2024/05/28 18:20:08 Sent {"src":"n2","dest":"n4","body":{"src":"n2","dest":"n4","body":{"type":"broadcast","message":8,"msg_id":1}}}
+2024/05/28 18:20:08 Sent {"src":"n2","dest":"n2","body":{"in_reply_to":1,"type":"broadcast_ok"}}
+2024/05/28 18:20:08 Received {n2 n2 {"in_reply_to":1,"type":"broadcast_ok"}}
+2024/05/28 18:20:08 Ignoring reply to 1 with no callback
+2024/05/28 18:20:23 Received {c23 n2 {"type":"read","msg_id":1}}
+2024/05/28 18:20:23 Sent {"src":"n2","dest":"c23","body":{"in_reply_to":1,"messages":[0,3,6,8],"type":"read_ok"}}
