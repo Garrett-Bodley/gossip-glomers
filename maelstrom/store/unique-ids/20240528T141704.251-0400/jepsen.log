@@ -1,0 +1,192 @@
+2024-05-28 14:17:04,296{GMT}	INFO	[jepsen test runner] jepsen.core: Test version 1387beb74107c75fc6c9a7b23a8509db2ff73908 (plus uncommitted changes)
+2024-05-28 14:17:04,297{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test -w unique-ids --bin /Users/garrettbodley/go/bin/maelstrom-unique-ids --time-limit 30 --rate 1000 --node-count 3 --availability total --nemesis partition
+2024-05-28 14:17:04,353{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:args []
+ :remote
+ #jepsen.control.retry.Remote{:remote #jepsen.control.scp.Remote{:cmd-remote #jepsen.control.sshj.SSHJRemote{:concurrency-limit 6,
+                                                                                                             :conn-spec nil,
+                                                                                                             :client nil,
+                                                                                                             :semaphore nil},
+                                                                 :conn-spec nil},
+                              :conn nil}
+ :log-net-send false
+ :node-count 3
+ :availability :total
+ :max-txn-length 4
+ :concurrency 3
+ :db
+ #object[maelstrom.db$db$reify__16142
+         "0x34d776eb"
+         "maelstrom.db$db$reify__16142@34d776eb"]
+ :max-writes-per-key 16
+ :leave-db-running? false
+ :name "unique-ids"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0xd15f98a" "2024-05-28T14:17:04.251-04:00"]
+ :nemesis-interval 10
+ :net
+ #object[maelstrom.net$jepsen_net$reify__15251
+         "0x704c3ca2"
+         "maelstrom.net$jepsen_net$reify__15251@704c3ca2"]
+ :client
+ #object[maelstrom.workload.unique_ids$client$reify__20074
+         "0x7d3a9061"
+         "maelstrom.workload.unique_ids$client$reify__20074@7d3a9061"]
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x2a2f7a61"
+         "java.util.concurrent.CyclicBarrier@2a2f7a61"]
+ :log-stderr false
+ :pure-generators true
+ :ssh {:dummy? true}
+ :rate 1000.0
+ :checker
+ #object[jepsen.checker$compose$reify__11881
+         "0x8d40f07"
+         "jepsen.checker$compose$reify__11881@8d40f07"]
+ :argv
+ ("test"
+  "-w"
+  "unique-ids"
+  "--bin"
+  "/Users/garrettbodley/go/bin/maelstrom-unique-ids"
+  "--time-limit"
+  "30"
+  "--rate"
+  "1000"
+  "--node-count"
+  "3"
+  "--availability"
+  "total"
+  "--nemesis"
+  "partition")
+ :nemesis
+ (jepsen.nemesis.ReflCompose
+  {:fm {:start-partition 0,
+        :stop-partition 0,
+        :kill 1,
+        :start 1,
+        :pause 1,
+        :resume 1},
+   :nemeses [#unprintable "jepsen.nemesis.combined$partition_nemesis$reify__16416@196c8b93"
+             #unprintable "jepsen.nemesis.combined$db_nemesis$reify__16397@307ca947"]})
+ :nodes ["n0" "n1" "n2"]
+ :test-count 1
+ :latency {:mean 0, :dist :constant}
+ :bin "/Users/garrettbodley/go/bin/maelstrom-unique-ids"
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 30000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads
+                  {:f #{:nemesis},
+                   :context-filter #object[jepsen.generator.context$make_thread_filter$lazy_filter__9167
+                                           "0x65c040c9"
+                                           "jepsen.generator.context$make_thread_filter$lazy_filter__9167@65c040c9"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 20000000000,
+                          :next-time nil,
+                          :gen (jepsen.generator.FlipFlop
+                                {:gens [#object[jepsen.nemesis.combined$partition_package$start__16420
+                                                "0x11736ebc"
+                                                "jepsen.nemesis.combined$partition_package$start__16420@11736ebc"]
+                                        ({:type :info,
+                                          :f :stop-partition,
+                                          :value nil}
+                                         {:type :info,
+                                          :f :stop-partition,
+                                          :value nil}
+                                         {:type :info,
+                                          :f :stop-partition,
+                                          :value nil}
+                                         {:type :info,
+                                          :f :stop-partition,
+                                          :value nil}
+                                         {:type :info,
+                                          :f :stop-partition,
+                                          :value nil}
+                                         {:type :info,
+                                          :f :stop-partition,
+                                          :value nil}
+                                         {:type :info,
+                                          :f :stop-partition,
+                                          :value nil}
+                                         {:type :info,
+                                          :f :stop-partition,
+                                          :value nil}
+                                         ...)],
+                                 :i 0})})})
+                 (jepsen.generator.OnThreads
+                  {:f #jepsen.generator.context.AllBut{:element :nemesis},
+                   :context-filter #object[jepsen.generator.context$make_thread_filter$lazy_filter__9167
+                                           "0x3d0c88f4"
+                                           "jepsen.generator.context$make_thread_filter$lazy_filter__9167@3d0c88f4"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 2000000,
+                          :next-time nil,
+                          :gen (jepsen.generator.Repeat
+                                {:remaining -1, :gen {:f :generate}})})})]})})
+ :log-net-recv false
+ :os
+ #object[maelstrom.net$jepsen_os$reify__15254
+         "0x5aad4194"
+         "maelstrom.net$jepsen_os$reify__15254@5aad4194"]
+ :time-limit 30
+ :workload :unique-ids
+ :consistency-models [:strict-serializable]
+ :topology :grid}
+
+2024-05-28 14:17:05,770{GMT}	INFO	[jepsen node n0] maelstrom.net: Starting Maelstrom network
+2024-05-28 14:17:05,771{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2024-05-28 14:17:05,772{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2024-05-28 14:17:05,772{GMT}	INFO	[jepsen node n1] maelstrom.db: Setting up n1
+2024-05-28 14:17:05,772{GMT}	INFO	[jepsen node n2] maelstrom.db: Setting up n2
+2024-05-28 14:17:05,773{GMT}	INFO	[jepsen node n1] maelstrom.process: launching /Users/garrettbodley/go/bin/maelstrom-unique-ids []
+2024-05-28 14:17:05,773{GMT}	INFO	[jepsen node n2] maelstrom.process: launching /Users/garrettbodley/go/bin/maelstrom-unique-ids []
+2024-05-28 14:17:05,774{GMT}	INFO	[jepsen node n0] maelstrom.service: Starting services: (lin-kv lin-tso lww-kv seq-kv)
+2024-05-28 14:17:05,775{GMT}	INFO	[jepsen node n0] maelstrom.db: Setting up n0
+2024-05-28 14:17:05,775{GMT}	INFO	[jepsen node n0] maelstrom.process: launching /Users/garrettbodley/go/bin/maelstrom-unique-ids []
+2024-05-28 14:17:06,786{GMT}	INFO	[jepsen node n0] maelstrom.net: Shutting down Maelstrom network
+2024-05-28 14:17:06,788{GMT}	WARN	[jepsen test runner] jepsen.core: Test crashed!
+java.io.IOException: Cannot run program "/Users/garrettbodley/go/bin/maelstrom-unique-ids" (in directory "/var/folders/n6/67m0m6156vlfvn6rb34417100000gn/T"): error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1140)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1074)
+	at maelstrom.process$start_node_BANG_.invokeStatic(process.clj:199)
+	at maelstrom.process$start_node_BANG_.invoke(process.clj:168)
+	at maelstrom.db$db$reify__16142.setup_BANG_(db.clj:34)
+	at jepsen.db$fn__8729$G__8723__8733.invoke(db.clj:12)
+	at jepsen.db$fn__8729$G__8722__8738.invoke(db.clj:12)
+	at clojure.core$partial$fn__5908.invoke(core.clj:2642)
+	at jepsen.control$on_nodes$fn__8599.invoke(control.clj:314)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:667)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1990)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1990)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invokeStatic(core.clj:671)
+	at clojure.core$bound_fn_STAR_$fn__5818.doInvoke(core.clj:2020)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at dom_top.core$real_pmap_helper$build_thread__211$fn__212.invoke(core.clj:163)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:667)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1990)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1990)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.core$apply.invokeStatic(core.clj:671)
+	at clojure.core$bound_fn_STAR_$fn__5818.doInvoke(core.clj:2020)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:319)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:249)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1111)
+	... 31 common frames omitted
