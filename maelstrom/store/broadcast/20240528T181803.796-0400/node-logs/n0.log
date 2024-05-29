@@ -1,9 +1,0 @@
-2024/05/28 18:18:05 Received {c4 n0 {"type":"init","node_id":"n0","node_ids":["n0","n1","n2","n3","n4"],"msg_id":1}}
-2024/05/28 18:18:05 Node n0 initialized
-2024/05/28 18:18:05 Sent {"src":"n0","dest":"c4","body":{"in_reply_to":1,"type":"init_ok"}}
-2024/05/28 18:18:05 Received {c5 n0 {"type":"topology","topology":{"n0":["n3","n1"],"n1":["n4","n2","n0"],"n2":["n1"],"n3":["n0","n4"],"n4":["n1","n3"]},"msg_id":1}}
-2024/05/28 18:18:05 Sent {"src":"n0","dest":"c5","body":{"in_reply_to":1,"type":"topology_ok"}}
-2024/05/28 18:18:05 Received {c10 n0 {"type":"read","msg_id":1}}
-2024/05/28 18:18:05 Sent {"src":"n0","dest":"c10","body":{"in_reply_to":1,"messages":[],"type":"read_ok"}}
-2024/05/28 18:18:05 Received {n1 n0 {"src":"n1","dest":"n0","body":{"type":"broadcast","message":0,"msg_id":1}}}
-2024/05/28 18:18:05 No handler for {"id":23,"src":"n1","dest":"n0","body":{"src":"n1","dest":"n0","body":{"type":"broadcast","message":0,"msg_id":1}}}

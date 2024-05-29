@@ -1,7 +1,0 @@
-2024/05/28 18:18:05 Received {c0 n2 {"type":"init","node_id":"n2","node_ids":["n0","n1","n2","n3","n4"],"msg_id":1}}
-2024/05/28 18:18:05 Node n2 initialized
-2024/05/28 18:18:05 Sent {"src":"n2","dest":"c0","body":{"in_reply_to":1,"type":"init_ok"}}
-2024/05/28 18:18:05 Received {c7 n2 {"type":"topology","topology":{"n0":["n3","n1"],"n1":["n4","n2","n0"],"n2":["n1"],"n3":["n0","n4"],"n4":["n1","n3"]},"msg_id":1}}
-2024/05/28 18:18:05 Sent {"src":"n2","dest":"c7","body":{"in_reply_to":1,"type":"topology_ok"}}
-2024/05/28 18:18:05 Received {n1 n2 {"src":"n1","dest":"n2","body":{"type":"broadcast","message":0,"msg_id":1}}}
-2024/05/28 18:18:05 No handler for {"id":24,"src":"n1","dest":"n2","body":{"src":"n1","dest":"n2","body":{"type":"broadcast","message":0,"msg_id":1}}}
