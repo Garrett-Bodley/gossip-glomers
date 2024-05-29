@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"log"
+	"sync"
+	"strings"
 
 	maelstrom "github.com/jepsen-io/maelstrom/demo/go"
 )
@@ -21,6 +23,7 @@ import (
 func main() {
 	n := maelstrom.NewNode()
 	store := map[int]bool{}
+	mu := sync.Mutex{}
 	topology := make(map[string][]string)
 	n.Handle("broadcast", func(msg maelstrom.Message) error {
 
@@ -31,13 +34,21 @@ func main() {
 		if err := json.Unmarshal(msg.Body, &bodley); err != nil {
 			return err
 		}
+		mu.Lock()
 		store[bodley.Message] = true
+		mu.Unlock()
+
+		// TODO:
+		// [x] Fix concurrency issue
+		// [x] Blow up github repo
+		// [ ] Reduce unnecessary network chatter (gossip)
+
 
 		whoami := msg.Dest
 		from := msg.Src
 		for _, node := range n.NodeIDs() {
-			if whoami == node || from == node { continue }
-		
+			if whoami == node || from == node || strings.HasPrefix(from, "n") { continue }
+
 			n.Send(node, msg.Body)
 		}
 		// for neighbor := range topology[whoami] {
